@@ -16,7 +16,7 @@ public class Exercise04 {
         }
 
         Arrays.sort(result, 0, evenNumberIndex);
-        Arrays.sort(result, evenNumberIndex + 1, numbers.length, Collections.reverseOrder());
+        Arrays.sort(result, evenNumberIndex, numbers.length, Collections.reverseOrder());
 
         return result;
     }
