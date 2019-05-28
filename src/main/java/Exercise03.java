@@ -1,7 +1,7 @@
 public class Exercise03 {
-    public static int sum(int[] numbers) {
+    public int sum(int[] numbers) {
         int sum = 0;
-        for (Integer number : numbers) {
+        for (int number : numbers) {
             if (number % 2 == 0) {
                 sum += number;
             } else {
