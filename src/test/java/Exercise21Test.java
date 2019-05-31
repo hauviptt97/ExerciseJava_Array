@@ -18,5 +18,9 @@ public class Exercise21Test {
         Assert.assertEquals(new Exercise21().caculateDet(new int[][]{
                 {1}
         }), 1);
+
+        Assert.assertEquals(new Exercise21().caculateDet(new int[][]{
+                {1},{3}
+        }), 0);
     }
 }
