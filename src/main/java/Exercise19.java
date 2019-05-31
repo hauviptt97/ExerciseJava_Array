@@ -33,7 +33,7 @@ public class Exercise19 {
         int[][] result = new int[n][n];
         int count = 0;
 
-        while (count <= n * n) {
+        while (count < numbers.length) {
 
             for (int j = left; j <= right; j++) {
                 result[top][j] = numbers[count++];
