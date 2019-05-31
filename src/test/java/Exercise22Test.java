@@ -18,5 +18,11 @@ public class Exercise22Test {
                 {3, 2, 1},
                 {4, 5, 6}
         }, 5, 1), null);
+
+        Assert.assertArrayEquals(new Exercise22().generateSubArray(new int[][]{
+                {1, 2, 3},
+                {3, 2, 1},
+                {4, 5, 6}
+        }, 2, 7), null);
     }
 }
