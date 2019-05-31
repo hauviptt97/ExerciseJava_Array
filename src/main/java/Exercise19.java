@@ -54,10 +54,6 @@ public class Exercise19 {
             }
             bottom--;
 
-            if (right < left) {
-                break;
-            }
-
             for (int i = bottom; i >= top; i--) {
                 result[i][left] = numbers[count++];
             }
