@@ -15,9 +15,9 @@ public class Exercise25 {
     }
 
     public int findGCDOfArray(int[] numbers) {
-        int result = 0;
-        for (int i = 0; i < numbers.length - 1; i++) {
-            result = findGCD(numbers[i], numbers[i + 1]);
+        int result = findGCD(numbers[0], numbers[1]);
+        for (int i = 2; i < numbers.length; i++) {
+            result = findGCD(result, numbers[i]);
         }
         return result;
     }
