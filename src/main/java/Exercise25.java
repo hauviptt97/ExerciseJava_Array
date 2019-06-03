@@ -1,6 +1,6 @@
 public class Exercise25 {
 
-    private int findGCD(int number1, int number2) {
+    public int findGCD(int number1, int number2) {
         if ((number1 * number2) == 0) {
             return number1 + number2;
         }
