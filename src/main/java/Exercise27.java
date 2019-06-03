@@ -18,7 +18,6 @@ public class Exercise27 {
             result[count] = numbers[count];
             count++;
         }
-
         return result;
     }
 }
