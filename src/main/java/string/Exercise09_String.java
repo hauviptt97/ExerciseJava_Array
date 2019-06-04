@@ -4,6 +4,10 @@ public class Exercise09_String {
 
     public String compact(String input) {
 
+        if (!input.matches("[A-Za-z]+")) {
+            return "Invalid String";
+        }
+
         int count = 0;
         StringBuilder result = new StringBuilder();
 
