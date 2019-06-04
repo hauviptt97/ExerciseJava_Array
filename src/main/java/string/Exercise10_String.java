@@ -6,23 +6,19 @@ public class Exercise10_String {
 
         StringBuilder result = new StringBuilder();
 
-        String temp = "";
 
         char currentChar = 0;
 
         int i = 0;
         while (i < input.length()) {
 
-            if (Character.isLetter(input.charAt(i))) {
+            currentChar = input.charAt(i);
 
-                currentChar = input.charAt(i);
+            result.append(currentChar);
 
-                result.append(currentChar);
+            String temp = "0";
 
-                temp = "0";
-
-                i++;
-            }
+            i++;
 
             while (i < input.length() && Character.isDigit(input.charAt(i))) {
                 temp += input.charAt(i);
