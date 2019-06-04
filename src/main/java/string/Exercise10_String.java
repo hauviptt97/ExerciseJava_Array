@@ -39,9 +39,4 @@ public class Exercise10_String {
         }
         return result.toString();
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Exercise10_String().convert("a10b5c"));
-        System.out.println(new Exercise10_String().convert("a32cb5c20"));
-    }
 }
