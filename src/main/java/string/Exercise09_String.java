@@ -30,12 +30,10 @@ public class Exercise09_String {
 
         }
 
-        if (current == input.charAt(input.length() - 1)) {
-            if (count > 1) {
-                result.append(current).append(count);
-            } else {
-                result.append(current);
-            }
+        if (count > 1) {
+            result.append(current).append(count);
+        } else {
+            result.append(current);
         }
 
         return result.toString();
