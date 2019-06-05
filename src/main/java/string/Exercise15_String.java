@@ -11,7 +11,7 @@ public class Exercise15_String {
         int sum = 0;
 
         for (int i = 0; i < barcode.length(); i++) {
-            sum += ((i & 1) * 2 + 1) * Character.getNumericValue(barcode.charAt(i));
+            sum += ((i & 1) * 2 + 1) * (barcode.charAt(i)-'0');
         }
 
         return (sum / 10 + 1) * 10 - sum;
