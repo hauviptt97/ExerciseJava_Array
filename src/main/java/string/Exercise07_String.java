@@ -12,12 +12,8 @@ public class Exercise07_String {
             if (chars[i] == subChars[0]) {
                 int sumEqual = 1;
 
-                for (int j = 1; j < subChars.length; j++) {
-                    if (subChars[j] != chars[i + j]) {
-                        break;
-                    } else {
-                        sumEqual++;
-                    }
+                while (sumEqual < subChars.length && subChars[sumEqual] == chars[i + sumEqual]) {
+                    sumEqual++;
                 }
 
                 if (sumEqual == subString.length()) {
