@@ -36,7 +36,7 @@ public class Exercise17_String {
 
             temp = (subTemp < 0) ? 1 : 0;
 
-            if (subTemp < 0 && i != 0) {
+            if (subTemp < 0) {
                 subTemp += 10;
             }
 
