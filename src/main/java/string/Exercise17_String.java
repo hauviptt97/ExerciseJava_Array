@@ -18,27 +18,32 @@ public class Exercise17_String {
 
         }
 
-        StringBuilder sum = new StringBuilder();
+        return input1.compareTo(input2) > 0 ? calculate(input1, input2) : "-" + calculate(input2, input1);
+    }
 
-        int sumTemp, temp = 0;
+    private String calculate(String bigNumber, String smallNumber) {
 
-        for (int i = input1.length() - 1; i >= 0; i--) {
+        StringBuilder sub = new StringBuilder();
 
-            int number1 = input1.charAt(i) - '0';
-            int number2 = input2.charAt(i) - '0';
+        int subTemp, temp = 0;
 
-            sumTemp = number1 + number2 + temp;
+        for (int i = bigNumber.length() - 1; i >= 0; i--) {
 
-            temp = sumTemp / 10;
+            int number1 = bigNumber.charAt(i) - '0';
+            int number2 = smallNumber.charAt(i) - '0';
 
-            if (i != 0) {
-                sumTemp %= 10;
+            subTemp = number1 - number2 - temp;
+
+            temp = (subTemp < 0) ? 1 : 0;
+
+            if (subTemp < 0 && i != 0) {
+                subTemp += 10;
             }
 
-            sum.insert(0, sumTemp);
+            sub.insert(0, subTemp);
         }
 
-        return sum.toString();
+        return sub.toString();
     }
 
 }
