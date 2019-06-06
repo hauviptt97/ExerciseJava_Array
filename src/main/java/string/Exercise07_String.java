@@ -3,22 +3,16 @@ package string;
 public class Exercise07_String {
     public int indexOf(String input, String subString) {
 
-        char[] chars = input.toCharArray();
+        int sumEqual = 0;
 
-        char[] subChars = subString.toCharArray();
+        for (int i = 0; i < input.length(); i++) {
 
-        for (int i = 0; i < chars.length; i++) {
+            while (sumEqual < subString.length() && input.charAt(i) == subString.charAt(sumEqual)) {
+                sumEqual++;
+            }
 
-            if (chars[i] == subChars[0]) {
-                int sumEqual = 1;
-
-                while (sumEqual < subChars.length && subChars[sumEqual] == chars[i + sumEqual]) {
-                    sumEqual++;
-                }
-
-                if (sumEqual == subString.length()) {
-                    return i;
-                }
+            if (sumEqual == subString.length()) {
+                return i + 1 - sumEqual;
             }
         }
 
