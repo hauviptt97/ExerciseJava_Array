@@ -1,3 +1,6 @@
+package array;
+
+import array.Exercise25;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,3 +1,5 @@
+package array;
+
 public class Exercise25 {
 
     public int findGCD(int number1, int number2) {
