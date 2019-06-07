@@ -3,17 +3,21 @@ package string;
 public class Exercise07_String {
     public int indexOf(String input, String subString) {
 
-        int sumEqual = 0;
+        int i = 0;
+        while (i < input.length()) {
 
-        for (int i = 0; i < input.length(); i++) {
+            int sumEqual = 0;
 
             while (sumEqual < subString.length() && input.charAt(i) == subString.charAt(sumEqual)) {
                 sumEqual++;
+                i++;
             }
 
             if (sumEqual == subString.length()) {
-                return i + 1 - sumEqual;
+                return i - sumEqual;
             }
+
+            i++;
         }
 
         return -1;
