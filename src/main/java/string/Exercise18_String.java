@@ -3,57 +3,44 @@ package string;
 public class Exercise18_String {
 
     public String multiply(String input1, String input2) {
-        if (!input1.matches("\\d+") || !input2.matches("\\d+")) {
+
+        if (!input1.matches("[-]{0,1}\\d+") || !input2.matches("[-]{0,1}\\d+")) {
             return "Invalid Number";
         }
 
-        while (input1.length() != input2.length()) {
+        if (input1.matches("[0]+") || input2.matches("[0]+")) {
+            return "0";
+        }
 
-            if (input1.length() < input2.length()) {
-                input1 = "0" + input1;
-            } else {
-                input2 = "0" + input2;
-            }
+        String number1 = input1.replace("-", "");
+        String number2 = input2.replace("-", "");
+
+        if (number1.length() < number2.length()) {
+            String temp = number1;
+            number1 = number2;
+            number2 = temp;
+        }
+
+        String result = "0", zero = "";
+
+        for (int i = number2.length() - 1; i >= 0; i--) {
+
+            String currentProduct = calculate(number1, number2.charAt(i)) + zero;
+
+            result = add(result, currentProduct);
+
+            zero += "0";
 
         }
 
-        StringBuilder sum = new StringBuilder();
+        return isNegativeNumber(input1) && !isNegativeNumber(input2) || isNegativeNumber(input2) && !isNegativeNumber(input1) ? "-" + result : result;
 
-        int mulTemp, temp = 0;
-
-        for (int i = input2.length() - 1; i >= 0; i--) {
-
-            int number1 = input1.charAt(i) - '0';
-            int number2 = input2.charAt(i) - '0';
-
-            mulTemp = number1 + number2 + temp;
-
-            temp = mulTemp / 10;
-
-            if (i != 0) {
-                mulTemp %= 10;
-            }
-
-            sum.insert(0, mulTemp);
-        }
-
-        return sum.toString();
     }
 
     private String add(String input1, String input2) {
 
-        if (!input1.matches("\\d+") || !input2.matches("\\d+")) {
-            return "Invalid Number";
-        }
-
         while (input1.length() != input2.length()) {
-
-            if (input1.length() < input2.length()) {
-                input1 = "0" + input1;
-            } else {
-                input2 = "0" + input2;
-            }
-
+            input1 = "0" + input1;
         }
 
         StringBuilder sum = new StringBuilder();
@@ -79,9 +66,32 @@ public class Exercise18_String {
         return sum.toString();
     }
 
+    private String calculate(String input1, char input2) {
 
-    public static void main(String[] args) {
-        System.out.println(new Exercise18_String());
+        StringBuilder result = new StringBuilder();
+
+        int product, temp = 0;
+
+        for (int i = input1.length() - 1; i >= 0; i--) {
+
+            int number1 = input1.charAt(i) - '0';
+            int number2 = input2 - '0';
+
+            product = number1 * number2 + temp;
+
+            temp = product / 10;
+
+            if (i != 0) {
+                product %= 10;
+            }
+
+            result.insert(0, product);
+        }
+
+        return result.toString();
     }
 
+    private boolean isNegativeNumber(String input) {
+        return input.startsWith("-");
+    }
 }
