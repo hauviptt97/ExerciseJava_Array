@@ -1,28 +1,15 @@
-package oop;
+package oop.ex01;
 
 public class Triangle {
-    private int x1;
-    private int y1;
-    private int x2;
-    private int y2;
-    private int x3;
-    private int y3;
 
     private double a;
     private double b;
     private double c;
 
     public Triangle(int x1, int y1, int x2, int y2, int x3, int y3) {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
-        this.x3 = x3;
-        this.y3 = y3;
-
-        a = getDistance(x1, y1, x2, y2);
-        b = getDistance(x1, y1, x3, y3);
-        c = getDistance(x2, y2, x3, y3);
+        this.a = getDistance(x1, y1, x2, y2);
+        this.b = getDistance(x1, y1, x3, y3);
+        this.c = getDistance(x2, y2, x3, y3);
     }
 
     private double getDistance(double x1, double y1, double x2, double y2) {
@@ -38,26 +25,35 @@ public class Triangle {
     public String getType() {
 
         if (!isTriangle()) {
-            return "khong phai la tam giac";
+            return "Invalid Triangle";
         }
 
         if (a == b && a == c) {
-            return "tam giac deu";
+            return "Equilateral Triangle";
         }
 
         if ((a - b) * (a - c) * (b - c) != 0) {
 
             if (c * c == a * a + b * b || b * b == a * a + c * c || a * a == c * c + b * b) {
-                return "tam giac vuong";
+                return "Right Triangle";
             }
 
-            return "tam giac binh thuong";
+            return "Scalene Triangle";
         }
-        return "tam giac can";
+        return "Isosceles Triangle";
+    }
+
+    public double getArea() {
+        if (!isTriangle()) {
+            return -1;
+        }
+
+        double p = getPerimeter() / 2;
+
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     public double getPerimeter() {
-
         if (!isTriangle()) {
             return -1;
         }
@@ -65,13 +61,7 @@ public class Triangle {
         return a + b + c;
     }
 
-    public double getArea() {
-
-        if (!isTriangle()) {
-            return -1;
-        }
-
-        double p = getPerimeter() / 2;
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    public String showInfo() {
+        return "Type: " + getType() + "\nArea: " + getArea() + "\nPerimeter: " + getPerimeter();
     }
 }
